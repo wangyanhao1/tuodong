@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	#move{width: 100px;height: 100px;background: red;
+
+			position: absolute;left:20px;top:0px;
+			/*margin: 20px;  padding: 20px;*/
+
+	}
+
+
+
+	</style>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			
+			var move=document.getElementById('move');
+			var lastX,lastY;
+			move.onmousedown=rr;//鼠标按下时
+			function rr(e){
+				console.log(move.offsetLeft);
+				console.log(e.clientX)
+				lastX=e.clientX-move.offsetLeft;
+		        lastY=e.clientY-move.offsetTop;
+				 //clientX:鼠标指针点击时当前相对于浏览器页面的水平坐标
+		        //move.offsetLeft:点击时当前元素距离父级元素(bady)左侧的值
+				window.onmousemove=function(e){
+					var x=e.clientX-lastX;
+					var y=e.clientY-lastY;
+					move.style.left=x+'px';
+					move.style.top=y+'px';
+					// move.style.marginLeft=x+'px';//父元素是啥 下面就针对啥 margin 针对margin
+					// move.style.marginTop=y+'px';
+					// move.style.paddingLeft=x+'px';
+					// move.style.paddingTop=y+'px';
+				
+
+				}
+			}		
+			
+             window.onmouseup=function(e){
+				window.onmousemove=null;
+			}
+		}
+
+
+	</script>
+</head>
+<body>
+	<div id="move"></div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>千助小动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: "微软雅黑";
+        }
+        .one{
+            width: 100%;
+            height: 665px;
+        }
+        .list{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .bg_shou{
+            width: 100%;
+            height: 100%;
+            background: url("images/wp1_1.jpg")no-repeat;
+            background-size: cover;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            top:0;
+            left:0;
+            background: url("images/wp4.jpg");
+            background-size: 100% 100%;
+        }
+        .nav{
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            z-index: 200;
+            top:0;
+            background: rgba(0,0,0,.6);
+        }
+        .nav .logo{
+            width: 210px;
+            position: absolute;
+            top: 14px;
+            left: 50px;
+            cursor: pointer;
+        }
+        .nav_list{
+            position: absolute;
+            top:25px;
+            left: 450px;
+        }
+        .nav_list li{
+            float: left;
+            margin: 0 10px;
+            font-size: 16px;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .nav_list li a{
+            color: #ccc;
+            text-decoration: none;
+        }
+        .nav_list li:hover a{
+            color: #00DFB9;
+        }
+        .dianhua{
+            width: 200px;
+            position: absolute;
+            right: 50px;
+            top: 25px;
+            cursor: pointer;
+        }
+        .dianhua i{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            background: url("images/icons.png")no-repeat;
+            background-position: 0 0;
+            float: left;
+        }
+        .dianhua span{
+            display: inline-block;
+            padding-top: 3px;
+            color: #00dfb9;
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 22px;
+            float: left;
+        }
+        .timu{
+            width: 100%;
+            height: 91px;
+            position: absolute;
+            top: 150px;
+            text-align: center;
+        }
+        .timu i{
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            width: 299px;
+            height: 37px;
+            background: url(images/words.png) no-repeat -152px -528px;
+        }
+        .timu span{
+            font-size: 24px;
+            padding-left: 10px
+        }
+        .content{
+            width: 1155px;
+            height: 300px;
+            background: rgba(255,255,255,.4);
+            margin: 0 auto;
+            position: relative;
+            top:285px;
+            z-index: 1;
+        }
+        .content li{
+            width: 230px;
+            height: 150px;
+            float: left;
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+        .content .aa{
+            border-right: 1px dotted #ddd;
+            border-bottom: 1px dotted #ddd;
+        }
+        .content .aa span{
+            transition: all .8s ease-in-out 0s;
+        }
+         .s1{
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 230px;
+            height: 150px;
+        }
+        .s2{
+            position: absolute;
+            top: 150px;
+            display: block;
+            width: 230px;
+            height: 150px;
+        }
+        .content .aa:hover .s1{
+            top: -150px;
+            transition: all .8s ease-in-out 0s;
+        }
+        .content .aa:hover .s2{
+            top: 0;
+            transition: all .8s ease-in-out 0s;
+        }
+        .content .zhe_bg{
+            width: 230px;
+            height:150px;
+            background-color: #f7f7f7;
+            position: absolute;
+            z-index: 9;
+            -webkit-transition:all 1s;
+        }
+        .content .cctv .s1{
+            background: url("images/clients.png")no-repeat 0 0;
+        }
+        .content .cctv .s2{
+            background: url("images/clients.png")no-repeat 0 -150px;
+        }
+        .content .apple .s1{
+            background: url("images/clients.png")no-repeat -1150px 0;
+        }
+        .content .apple .s2{
+            background: url("images/clients.png")no-repeat -1150px -150px;
+        }
+        .content .lenovo .s1{
+            background: url("images/clients.png")no-repeat -2530px 0;
+        }
+        .content .lenovo .s2{
+            background: url("images/clients.png")no-repeat -2530px -150px;
+        }
+        .content .unicom .s1{
+            background: url("images/clients.png")no-repeat -230px 0;
+        }
+        .content .unicom .s2{
+            background: url("images/clients.png")no-repeat -230px -150px;
+        }
+        .content .zhongying .s1{
+            background: url("images/clients.png")no-repeat -2990px 0;
+        }
+        .content .zhongying .s2{
+            background: url("images/clients.png")no-repeat -2990px -150px;
+        }
+        .content .qinghua .s1{
+            background: url("images/clients.png")no-repeat -460px 0;
+        }
+        .content .qinghua .s2{
+            background: url("images/clients.png")no-repeat -460px -150px;
+        }
+        .content .zhongke .s1{
+            background: url("images/clients.png")no-repeat -690px 0;
+        }
+        .content .zhongke .s2{
+            background: url("images/clients.png")no-repeat -690px -150px;
+        }
+        .content .wanke .s1{
+            background: url("images/clients.png")no-repeat -920px 0;
+        }
+        .content .wanke .s2{
+            background: url("images/clients.png")no-repeat -920px -150px;
+        }
+        .content .haier .s1{
+            background: url("images/clients.png")no-repeat -2760px 0;
+        }
+        .content .haier .s2{
+            background: url("images/clients.png")no-repeat -2760px -150px;
+        }
+        .content .gongsi .s1{
+            background: url("images/clients.png")no-repeat -1610px 0;
+        }
+        .content .gongsi .s2{
+            background: url("images/clients.png")no-repeat -1610px -150px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="one">
+        <div class="nav">
+            <div class="logo">
+                <img src="images/logo.png" alt="" width="210" height="34">
+            </div>
+            <ul class="nav_list">
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li>
+                    <a href="#">业务</a>
+                </li>
+                <li>
+                    <a href="#">案例</a>
+                </li>
+                <li>
+                    <a href="#">客户</a>
+                </li>
+                <li>
+                    <a href="#">品质</a>
+                </li>
+                <li>
+                    <a href="#">增值</a>
+                </li>
+                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+            <div class="dianhua">
+                <i></i>
+                <span>4006-123-011</span>
+            </div>
+        </div>
+        <div class="list">
+            <!--<div class="bg_shou"></div>-->
+            <div class="bg">
+                <div class="timu">
+                    <i></i>
+                    <span>他们与千助长期合作</span>
+                </div>
+
+
+
+                <ul class="content" id="content">
+                    <li class="cctv aa">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="apple aa">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="lenovo aa">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="unicom aa">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="zhongying aa" style="border-right: none">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="qinghua aa" style="border-bottom: none">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="zhongke aa" style="border-bottom: none">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="wanke aa" style="border-bottom: none">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="haier aa" style="border-bottom: none">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                    <li class="gongsi aa" style="border-bottom: none;border-right: none">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+//    客户
+    var ul=document.getElementById("content");
+    var nowPosition;
+    var zhezhao;
+
+    ul.addEventListener("mouseover", function(e) {
+        if(!nowPosition){
+            zhezhao=document.createElement("div");
+            zhezhao.className="zhe_bg";
+            ul.appendChild(zhezhao);
+        }
+
+        nowPosition=e.target;
+     
+        var nowContainer=e.target.parentElement;
+         
+        console.log(nowContainer.className);
+        if(nowContainer.className.slice(-2)=="aa"){
+
+            var boxLeft=nowContainer.offsetLeft;
+            var boxTop=nowContainer.offsetTop;
+
+            zhezhao.style.left=boxLeft+"px";
+            zhezhao.style.top=boxTop+"px";
+        }else{
+            zhezhao.remove();
+            nowPosition="";
+        }
+    })
+    ul.addEventListener('mouseleave',function(e){
+        zhezhao.remove();
+        nowPosition="";
+    });
+
+
+</script>
+</html>

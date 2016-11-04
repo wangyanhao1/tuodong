@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/function.js"></script>
+</head>
+<style>
+    body,ul,li{
+        margin:0;
+        padding:0;
+        line-height: none;
+        text-decoration:none;
+    }
+
+    .box{
+        width:100px;
+        height:100px;
+        background:cyan;
+        color:#fff;
+        position:absolute;
+    }
+    /*.one{*/
+        /*background-color: red;*/
+        /*width: 100%;*/
+        /*height: auto;*/
+        /*margin-bottom:10px;*/
+    /*}*/
+    /*.innerbox{*/
+        /*/!*border:1px solid blue;*!/*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*background:cyan;*/
+    /*}*/
+</style>
+<body>
+<div class="box"></div>
+<!--<ul class="bigbox">-->
+    <!--<li class="one">意向一</li>-->
+    <!--<li>-->
+        <!--<ul>-->
+            <!--<li>1</li>-->
+            <!--<li>1</li>-->
+            <!--<li>1</li>-->
+        <!--</ul>-->
+    <!--</li>-->
+<!--</ul>-->
+<!--<ul class="bigbox">-->
+    <!--<li class="one">意向二</li>-->
+    <!--<li>-->
+        <!--<ul>-->
+            <!--<li>2</li>-->
+            <!--<li>2</li>-->
+            <!--<li>2</li>-->
+        <!--</ul>-->
+    <!--</li>-->
+<!--</ul>-->
+<!--<ul class="bigbox">-->
+    <!--<li class="one">意向三</li>-->
+    <!--<li>-->
+        <!--<ul>-->
+            <!--<li>3</li>-->
+            <!--<li>3</li>-->
+            <!--<li>3</li>-->
+        <!--</ul>-->
+    <!--</li>-->
+<!--</ul>-->
+</body>
+<script>
+    //上午
+    var box=document.getElementsByClassName("box")[0];
+//    box.innerHTML=ow+"&nbsp;"+oh+"<br />"+w+"&nbsp;"+h+"<br />"+l;
+        var speedx=10;
+        var speedy=10;
+        var cw=document.documentElement.clientWidth;
+        var ch=document.documentElement.clientHeight;
+        var l = box.offsetLeft;
+        var t = box.offsetTop;
+        var ow=box.offsetWidth;
+        var oh=box.offsetHeight;
+        var t=setInterval(move,30);
+
+        function move() {
+           // console.log(l)
+            l += speedx;//l=l+speedx
+            t += speedy;
+            if(l>cw-ow||l<0){
+                speedx*=-1;//speedx=speed*(-1)
+
+            }
+            if(t>ch-oh||t<0){
+                speedy*=-1;
+            }
+            box.style.left=l+"px";
+            box.style.top=t+"px";
+        }
+    //下午
+//        var lis = document.getElementsByClassName("one");
+//        for (var i = 0; i < lis.length; i++) {
+//            getNext(lis[i]).style.display = "none";
+//            lis[i].onclick = function () {
+//                for (var j = 0; j < lis.length; j++) {
+//                    getNext(lis[j]).style.display = "none";
+//                }
+//                getNext(this).style.display = "block";
+//            }
+//        }
+</script>
+</html>
